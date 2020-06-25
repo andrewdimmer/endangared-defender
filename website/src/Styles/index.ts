@@ -32,5 +32,8 @@ export const styles = makeStyles((theme: Theme) =>
       color: "#FFFFFF",
       backgroundColor: theme.palette.info.main,
     },
+    fullWidth: {
+      width: "100%",
+    },
   })
 );

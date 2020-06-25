@@ -1,5 +1,6 @@
 import * as automl from "@tensorflow/tfjs-automl";
 import { AnimalKeysCertian } from "../@Types/types";
+import { logSightings } from "./data";
 
 let model: automl.ObjectDetectionModel | null = null;
 
@@ -17,6 +18,7 @@ export const findAnimals = async () => {
       document.getElementById("automlImage") as HTMLImageElement
     );
     console.log(results);
+    logSightings(results);
     let maxIndex = 0;
     for (let i = 0; i < results.length; i++) {
       if (results[i].score > results[maxIndex].score) {

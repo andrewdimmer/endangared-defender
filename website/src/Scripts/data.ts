@@ -1,3 +1,4 @@
+import { PredictedObject } from "@tensorflow/tfjs-automl";
 import { AnimalKeysCertian, AnimalInfo } from "../@Types/types";
 
 const elephantInfo: AnimalInfo = {
@@ -9,6 +10,7 @@ const elephantInfo: AnimalInfo = {
     usdz: window.location.href + "/assets/models/elephant.usdz",
     echoarId: "3cf2d729-ba67-4481-bcac-889fa7a7fe20",
   },
+  mapPoints: [],
   resources: [
     {
       label: "Wildlife Conservation Society",
@@ -79,6 +81,7 @@ const gorillaInfo: AnimalInfo = {
     usdz: window.location.href + "/assets/models/gorilla.usdz",
     echoarId: "7f392546-3cd8-4430-9715-9d69a3f5c6d9",
   },
+  mapPoints: [],
   resources: [
     {
       label: "World Wildlife Fund",
@@ -131,6 +134,7 @@ const rhinoInfo: AnimalInfo = {
     usdz: window.location.href + "/assets/models/rhino.usdz",
     echoarId: "6977982e-be9d-42dc-a31f-7421cf4fef27",
   },
+  mapPoints: [],
   resources: [
     {
       label: "World Wildlife Fund",
@@ -172,6 +176,7 @@ const tigerInfo: AnimalInfo = {
     usdz: window.location.href + "/assets/models/tiger.usdz",
     echoarId: "e8753862-b67b-4ef3-bb5a-9b16db8d246b",
   },
+  mapPoints: [],
   resources: [
     {
       label: "World Wildlife Organization",
@@ -218,5 +223,63 @@ export const getAnimalInfo = (key: AnimalKeysCertian): AnimalInfo => {
         "Unfortunatly, due to time and training cost constraints, the animal you scanned is not recognized. Please try scanning one of the following supported animals:",
       animalsToTry: ["Elephant", "Gorilla", "Rhino", "Tiger"],
     };
+  }
+};
+
+export const logSightings = (input: PredictedObject[]) => {
+  let elephantCount = 0;
+  let gorillaCount = 0;
+  let rhinoCount = 0;
+  let tigerCount = 0;
+
+  for (const sighting of input) {
+    if (sighting.label.indexOf("elephant") >= 0) {
+      elephantCount++;
+    } else if (sighting.label.indexOf("gorilla") >= 0) {
+      gorillaCount++;
+    } else if (sighting.label.indexOf("rhino") >= 0) {
+      rhinoCount++;
+    } else if (sighting.label.indexOf("tiger") >= 0) {
+      tigerCount++;
+    }
+  }
+
+  const date = new Date();
+  date.setDate(date.getDate() - Math.floor(Math.random() * 21 + 7));
+
+  if (elephantCount > 0) {
+    elephantInfo.mapPoints?.unshift({
+      count: elephantCount,
+      date: date.toDateString(),
+      lat: Math.random() * (8.690641 + 25.346247) - 25.346247,
+      long: Math.random() * (34.591697 - 14.317255) + 14.317255,
+    });
+  }
+
+  if (gorillaCount > 0) {
+    gorillaInfo.mapPoints?.unshift({
+      count: gorillaCount,
+      date: date.toDateString(),
+      lat: Math.random() * (4.614628 + 3.344996) - 3.344996,
+      long: Math.random() * (17.84901 - 11.224247) + 11.224247,
+    });
+  }
+
+  if (rhinoCount > 0) {
+    rhinoInfo.mapPoints?.unshift({
+      count: rhinoCount,
+      date: date.toDateString(),
+      lat: Math.random() * (-16.573966 + 26.004354) - 26.004354,
+      long: Math.random() * (32.202289 - 20.142823) + 20.142823,
+    });
+  }
+
+  if (tigerCount > 0) {
+    tigerInfo.mapPoints?.unshift({
+      count: tigerCount,
+      date: date.toDateString(),
+      lat: Math.random() * (24.337911 - 13.852412) + 13.852412,
+      long: Math.random() * (105.669454 - 98.495789) + 98.495789,
+    });
   }
 };
