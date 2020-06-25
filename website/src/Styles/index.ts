@@ -24,5 +24,13 @@ export const styles = makeStyles((theme: Theme) =>
       padding: theme.spacing(2),
       textAlign: "center",
     },
+    successColor: {
+      color: "#FFFFFF",
+      backgroundColor: theme.palette.success.main,
+    },
+    infoColor: {
+      color: "#FFFFFF",
+      backgroundColor: theme.palette.info.main,
+    },
   })
 );
