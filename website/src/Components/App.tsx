@@ -6,6 +6,7 @@ import Info from "./Info";
 import LoadingScreen from "./LoadingScreen";
 import NavBar from "./NavBar";
 import Upload from "./Upload";
+import { getAnimalInfo } from "../Scripts/data";
 
 const App: React.FunctionComponent = () => {
   const [animalKey, setAnimalKey] = React.useState<AnimalKeys>(undefined);
@@ -27,7 +28,9 @@ const App: React.FunctionComponent = () => {
     <Fragment>
       <NavBar
         navbarRef={navbarRef}
-        title={animalKey ? animalKey : "EndangARed Defender"}
+        title={
+          animalKey ? getAnimalInfo(animalKey).title : "EndangARed Defender"
+        }
         mode={animalKey ? undefined : mode}
         back={animalKey ? back : undefined}
         toggleMode={animalKey ? undefined : toggleMode}
