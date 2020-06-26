@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/endangared-defender/precache-manifest.817175fa4971935f46c1c501ef06917c.js"
+  "/endangared-defender/precache-manifest.edc39695d7206e2a7857eb54c1e0d5bb.js"
 );
 
 self.addEventListener('message', (event) => {
