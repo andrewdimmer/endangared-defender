@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d638ae7f1ba0531603e7ef673061277c",
+    "revision": "1c6e1cbef42c9a8863f6be7fe9409a1c",
     "url": "/endangared-defender/index.html"
   },
   {
-    "revision": "d2b5792831f7607ffe5d",
+    "revision": "e8b413d8347134d40a3c",
     "url": "/endangared-defender/static/css/main.69eda509.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/endangared-defender/static/js/2.73032a36.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d2b5792831f7607ffe5d",
-    "url": "/endangared-defender/static/js/main.523b7364.chunk.js"
+    "revision": "e8b413d8347134d40a3c",
+    "url": "/endangared-defender/static/js/main.fc3ecde2.chunk.js"
   },
   {
     "revision": "5f92928583c58667f8f2",
